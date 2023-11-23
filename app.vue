@@ -1,5 +1,10 @@
+<script setup>
+const user = useSupabaseUser()
+</script>
+
 <template>
   <div>
-    <NuxtWelcome />
+    <Account v-if="user" />
+    <Auth v-else />
   </div>
 </template>
