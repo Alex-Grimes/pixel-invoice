@@ -1,72 +1,13 @@
-<script>
-import { mapState, mapActions } from 'pinia';
-import Navigation from './components/Navigation.vue';
-import InvoiceModal from './components/InvoiceModal.vue';
-import Modal from './components/Modal.vue';
-// import Auth from '~/components/Auth.vue'
-// import Home from '~/views/Home.vue'
+<script setup>
+import Auth from '~/components/Auth.vue'
+import Account from '~/components/Account.vue'
 const user = useSupabaseUser();
-export default {
-  data() {
-    return {
-      mobile: null,
-    };
-  },
-  components: {
-    Navigation,
-    InvoiceModal,
-    Modal
-  },
-  created() {
-    this.GET_INVOICES();
-    this.checkScreen();
-    window.addEventListener("resize", this.checkScreen);
-  },
-  methods: {
-
-    ...mapActions(['GET_INVOICES']),
-
-
-
-    checkScreen() {
-      const windowWidth = window.innerWidth;
-      if (windowWidth <= 750) {
-        this.mobile = true;
-        return;
-      }
-      this.mobile = false;
-    },
-  },
-  computed: {
-    ...mapState(['invoiceModal', 'modalActive', 'invoicesLoaded'])
-  }
-};
-
 </script>
-
 <template>
-  <!-- <div class="container" style="padding: 50px 0 100px 0">
-    <Home v-if="user" />
-    <Auth v-else />
-  </div> -->
-
-  <div v-if="invoicesLoaded">
-    <div v-if="!mobile" class="app flex flex-column">
-      <Navigation />
-
-      <div class="app-content flex flex-column">
-        <Modal v-if="modalActive" />
-        <transition name="invoice">
-
-          <InvoiceModal v-if="invoiceModal" />
-        </transition>
-        <router-view />
-      </div>
-    </div>
-    <div v-else class="mobile-message flex flex-column">
-      <h2>Sorry, this app is not suppourted on Mobile Devices</h2>
-      <p>To use this app, please use a Computer or Tablet</p>
-    </div>
+  <div>
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
   </div>
 </template>
 <style lang="scss">
