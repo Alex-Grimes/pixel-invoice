@@ -94,7 +94,7 @@
 </template>
 
 <script>
-import { mapActions, mapMutations, mapState } from "vuex";
+import { mapActions, mapMutations, mapState } from "pinia";
 export default {
     name: "invoiceView",
     data() {

@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { mapMutations, mapState } from 'vuex';
+import { mapMutations, mapState } from 'pinia';
 export default {
     name: "modal",
 

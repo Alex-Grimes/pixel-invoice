@@ -126,7 +126,7 @@
 <script>
 import db from "../firebase/firebaseinit";
 import Loading from "../components/Loading";
-import { mapActions, mapMutations, mapState } from "vuex";
+import { mapActions, mapMutations, mapState } from "pinia";
 import { uid } from "uid";
 export default {
     name: "invoiceModal",
